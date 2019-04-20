@@ -1,9 +1,24 @@
 
 //word picking variables
 var words = ['beyonce', 'nsync', 'coldplay', 'nickelback','radiohead', 'paramore'];
+
+var group = [
+    { name:'beyonce', image: 'beyonce.jpg'},
+    { name:'nsync', image: 'nsync.jpg'},
+    { name:'coldplay', image: 'coldplay.jpg'},
+    { name:'nickleback', image: 'gross.png'},
+    { name:'radiohead', image: 'radiohead.jpg'},
+    { name:'paramore', image: 'paramore.jpg'},
+
+];
+
+
+
+
 var playingWord = '';
 var wordArr = [];
 var blanks = 0;
+
 
 
 //Set GamePlay Variables
@@ -34,6 +49,12 @@ var letterChecker = ['a', 'b', 'c',
 var wrongGuesses = document.querySelector('.wrong-guess');
 var wordToGuess = document.querySelector('.underscores');
 var livesRemaining = document.querySelector('.lives');
+var showImg = document.querySelector('#show-img');
+var hideImg = document.querySelector('#hide-img');
+var resetButton = document.querySelector('#reset');
+
+resetButton.addEventListener("click", reset);
+
 
 
 /**************************************************START GAME**************************************************/
@@ -65,7 +86,14 @@ document.onkeyup = function (event) {
 
 function wordPicker() {
 
-    playingWord = words[Math.floor(Math.random() * words.length)];
+    playingWord = group[Math.floor(Math.random() * group.length)].name;
+
+    
+
+
+
+    console.log(playingWord);
+    
 
     //create an array from string with .split method
 
@@ -79,6 +107,28 @@ function wordPicker() {
 
 
 }
+
+function grabImg(){
+   
+    for (var i=0; i < group.length; i++) {
+
+        if(group[i].name === playingWord){
+
+            var image = group[i].image;
+
+            console.log(image);
+            return image;
+        }
+    }
+
+}
+
+
+
+
+
+
+
 
 //eliminates repeating code or resetting the game
 function dryEliminator() {
@@ -100,6 +150,8 @@ function dryEliminator() {
         'v', 'w', 'x',
         'y', 'z'
     ];
+
+
 
   
 }
@@ -124,6 +176,8 @@ function init() {
 
     livesRemaining.innerHTML = lives;
     wrongGuesses.innerHTML = wrongLetters;
+
+    while (showImg.firstChild) showImg.removeChild(showImg.firstChild)
 
 
     console.log(playingWord);
@@ -170,9 +224,16 @@ function gameEnder() {
     // When number blanks if filled with right words then you win
     if (correctGuesses === blanks) {
 
+        var display = grabImg();
 
-        alert('You Win');
-        reset();
+        showImg.innerHTML = '<img class="img-fluid" src="images/' + display + '">';
+
+
+
+
+        alert('Click Reset Button');
+
+     
     }
     // When number of Guesses reaches 0 then You lose
     else if (lives === 0) {
