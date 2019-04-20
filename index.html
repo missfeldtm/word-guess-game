@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Word Guess Game</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/reset.css">
-    </head>
-    <body>
- 
-        
-        <script src="javascript/game.js" async defer></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="images/cover-art.jpg" alt="headerphoto">
+            </div>
+        </div>
+
+        <div class="row table-bordered">
+
+            <div class="col-md-6 table-bordered"></div>
+            <div class="col-md-6">
+
+                <p>Your Word:</p>
+                <div class="underscores">_ _ _ _ _ _</div>
+
+                <p>Wrong Guesses:</p>
+                <div class="wrong-guess"></div>
+
+                <p>Lives Remaining:</p>
+                <div class="lives">15</div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="javascript/game.js" async defer></script>
+</body>
+
 </html>
